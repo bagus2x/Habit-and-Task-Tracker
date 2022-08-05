@@ -6,7 +6,7 @@
 
 <table border="0">
  <tr>
-    <td><img src="https://github.com/bagus2x/habit-and-task-app/blob/main/screenshot/nested_task.jpg" width="320"></td>
+    <td><img src="https://github.com/bagus2x/habit-and-task-app/blob/main/screenshot/nested_task2.jpg" width="320"></td>
     <td><img src="https://github.com/bagus2x/habit-and-task-app/blob/main/screenshot/list_task.jpg" width="320"></td>
  </tr>
  <tr>
