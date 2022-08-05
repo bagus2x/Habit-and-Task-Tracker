@@ -1,0 +1,26 @@
+<resources>
+    <string name="app_name">My Habit</string>
+    <string name="text_home">Home</string>
+    <string name="text_add">Add</string>
+    <string name="text_profile">Profile</string>
+    <string name="add_habit">Add habit</string>
+    <string name="add_task">Add task</string>
+    <string name="text_this_week">This Week</string>
+    <string name="text_create_new_habit">Create New Habit</string>
+    <string name="text_choose_priority">Choose a Priority</string>
+    <string name="text_low">Low</string>
+    <string name="text_high">High</string>
+    <string name="text_medium">Medium</string>
+    <string name="text_focus_time">Focus time</string>
+    <string name="text_on_these_days">On these day</string>
+    <string name="text_add_habit_details">Add your habit details</string>
+    <string name="text_minutes">%1$d min</string>
+    <string name="text_hours">%1$d hr</string>
+    <string name="text_habit_title">Habit Title</string>
+    <string name="text_create_task">Create Task</string>
+    <string name="text_edit_task">Edit Task</string>
+    <string name="text_task_title">Task title</string>
+    <string name="text_add_task_details">Add your task details</string>
+    <string name="text_task">Task</string>
+    <string name="text_habit">Habit</string>
+</resources>
