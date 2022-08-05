@@ -2,6 +2,7 @@ package bagus2x.myhabit.presentation
 
 import android.app.Application
 import bagus2x.myhabit.BuildConfig
+import bagus2x.myhabit.presentation.task.TaskNotificationWorker
 import dagger.hilt.android.HiltAndroidApp
 import timber.log.Timber
 
@@ -13,5 +14,7 @@ class MyHabitApplication : Application() {
         if (BuildConfig.DEBUG) {
             Timber.plant(Timber.DebugTree())
         }
+        // Register notification channel
+        TaskNotificationWorker.registerNotificationChannel(this)
     }
 }

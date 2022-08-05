@@ -188,12 +188,14 @@ class TaskViewModel @Inject constructor(
         val delay = task.due - LocalDateTime.now()
         val data = Data.Builder()
             .putLong(TaskNotificationWorker.KEY_TASK_ID, task.taskId)
+            .putString(TaskNotificationWorker.KEY_TASK_TITLE, task.title)
+            .putString(TaskNotificationWorker.KEY_TASK_DESC, task.description)
             .build()
         val request = OneTimeWorkRequestBuilder<TaskNotificationWorker>()
             .setInitialDelay(delay, TimeUnit.MILLISECONDS)
             .setInputData(data)
             .build()
-        val workId = task.taskId.toString()
+        val workId = "${task.taskId}"
         workManager.enqueueUniqueWork(workId, ExistingWorkPolicy.REPLACE, request)
     }
 
@@ -206,6 +208,9 @@ class TaskViewModel @Inject constructor(
                     if (parentTaskId == taskId) {
                         sendUiEvent(TaskEvent.PopBackStack)
                     }
+                    // Cancel worker
+                    val workId = "$taskId"
+                    workManager.cancelUniqueWork(workId)
                 }
                 .onFailure { e ->
                     Timber.e(e)
