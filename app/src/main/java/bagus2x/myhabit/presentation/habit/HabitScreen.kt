@@ -115,7 +115,7 @@ fun HabitScreen(
                 Text(
                     text = if (state.isModeEdit) "Edit Habit" else stringResource(R.string.text_create_new_habit),
                     style = MaterialTheme.typography.h5,
-                    modifier = Modifier.padding(horizontal = 16.dp)
+                    modifier = Modifier.padding(horizontal = 16.dp),
                 )
                 TitleTextField(
                     value = state.title,
@@ -123,13 +123,14 @@ fun HabitScreen(
                     modifier = Modifier
                         .padding(horizontal = 16.dp, vertical = 4.dp)
                         .fillMaxWidth(),
-                    placeholder = { Text(text = stringResource(R.string.text_habit_title)) }
+                    placeholder = { Text(text = stringResource(R.string.text_habit_title)) },
+                    textStyle = MaterialTheme.typography.body1.copy(color = MaterialTheme.colors.onSurface),
                 )
                 BasicTextField(
                     value = state.description,
                     onValueChange = onChangeDescription,
                     placeholder = { Text(text = stringResource(R.string.text_add_habit_details)) },
-                    textStyle = MaterialTheme.typography.body1,
+                    textStyle = MaterialTheme.typography.body1.copy(color = MaterialTheme.colors.onSurface),
                     modifier = Modifier
                         .padding(start = 16.dp, top = 4.dp, end = 16.dp, bottom = 32.dp)
                         .fillMaxWidth()

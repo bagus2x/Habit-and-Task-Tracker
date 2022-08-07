@@ -10,7 +10,6 @@ import androidx.compose.material.Scaffold
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
-import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
@@ -18,6 +17,8 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
+import androidx.lifecycle.compose.ExperimentalLifecycleComposeApi
+import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.navigation.NavHostController
 import androidx.paging.PagingData
 import androidx.paging.compose.collectAsLazyPagingItems
@@ -34,8 +35,6 @@ import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.collectLatest
 import java.time.LocalDate
 import java.time.LocalTime
-import androidx.lifecycle.compose.ExperimentalLifecycleComposeApi
-import androidx.lifecycle.compose.collectAsStateWithLifecycle
 
 private val HeaderCardShape = RoundedCornerShape(bottomStart = 32.dp, bottomEnd = 32.dp)
 
@@ -126,16 +125,17 @@ fun TaskScreen(
                     modifier = Modifier
                         .padding(horizontal = 16.dp, vertical = 4.dp)
                         .fillMaxWidth(),
-                    placeholder = { Text(text = stringResource(R.string.text_task_title)) }
+                    placeholder = { Text(text = stringResource(R.string.text_task_title)) },
+                    textStyle = MaterialTheme.typography.body1.copy(color = MaterialTheme.colors.onSurface)
                 )
                 BasicTextField(
                     value = state.parentTask?.description ?: "",
                     onValueChange = { onChangeDescription(it) },
                     placeholder = { Text(text = stringResource(R.string.text_add_task_details)) },
-                    textStyle = MaterialTheme.typography.body1,
+                    textStyle = MaterialTheme.typography.body1.copy(color = MaterialTheme.colors.onSurface),
                     modifier = Modifier
                         .padding(start = 16.dp, top = 4.dp, end = 16.dp, bottom = 32.dp)
-                        .fillMaxWidth()
+                        .fillMaxWidth(),
                 )
             }
             val childrenTask = childrenTaskState.collectAsLazyPagingItems()
