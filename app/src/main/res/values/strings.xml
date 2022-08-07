@@ -23,4 +23,5 @@
     <string name="text_add_task_details">Add your task details</string>
     <string name="text_task">Task</string>
     <string name="text_habit">Habit</string>
+    <string name="channel_task_desc">Used for the task notifications</string>
 </resources>
